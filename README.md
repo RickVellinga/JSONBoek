@@ -1,2 +1,1 @@
-# JSONBoek
-Demo met JSON en Sorteren
+# Boeken met JSON
