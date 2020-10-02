@@ -32,6 +32,26 @@
       "prijs": 25
      },
      {
+       "titel": "Star Wars Trilogie",
+       "auteurs": [
+      {
+         "voornaam": "George",
+         "achternaam": "Lucas"
+      },
+      {
+          "voornaam": "Donald F.",
+          "achternaam": "Glut"
+      }
+
+    ],
+      "uitgave": "2015-12",
+      "paginas": 416,
+      "taal": "Nederlands",
+      "ean": 9789024571963 ,
+      "cover": "https://media.s-bol.com/R6YgL23WO34V/537x840.jpg",
+      "prijs": 15
+     },
+     {
         "titel": "Antwerpen",
         "cover": "https://media.s-bol.com/7lyMwq1Oo8y/550x825.jpg",
         "voortitel" : "Time to momo -",
