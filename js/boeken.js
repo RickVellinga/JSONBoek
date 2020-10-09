@@ -1,10 +1,12 @@
 const uitvoer = document.getElementById('boeken');
 const xhr = new XMLHttpRequest();
+const taalKeuze = document.querySelectorAll('.besturing__cb-taal');
+const selectSort = document.querySelector('.besturing__select');
 
 xhr.onreadystatechange = () => {
   if (xhr.readyState == 4 && xhr.status == 200) {
     let resultaat = JSON.parse(xhr.responseText);
-    boeken.data = resultaat;
+    boeken.filteren(resultaat);
     boeken.uitvoeren();
   }
 }
@@ -13,7 +15,38 @@ xhr.open('GET', 'boeken.json', true);
 xhr.send();
 
 const boeken = {
+
+  taalFilter: ['Duits', 'Nederlands', 'Engels'],
+  es: 'titel',
+  oplopend: 1,
+
+  filteren(gegevens) {
+    // this.data = gegevens.filter( (bk) => {return bk.taal == this.taalFilter }  );
+    this.data = gegevens.filter( (bk) => {
+      let bool = false;
+        this.taalFilter.forEach( (taal) => {
+          if (bk.taal == taal) {bool = true}
+        } )
+      return bool;
+    } )
+  },
+
+
+
+  sorteren() {
+
+    if (this.es == 'titel') {this.data.sort( (a,b) => (a.titel.toUpperCase() > b.titel.toUpperCase() ) ? this.oplopend : -1*this.oplopend );}
+    else if (this.es == 'paginas') {this.data.sort( (a,b) => (a.paginas > b.paginas ) ? this.oplopend : -1*this.oplopend );}
+    else if (this.es == 'uitgave') {this.data.sort( (a,b) => (a.uitgave > b.uitgave ) ? this.oplopend : -1*this.oplopend );}
+    else if (this.es == 'prijs') {this.data.sort( (a,b) => (a.prijs > b.prijs ) ? this.oplopend : -1*this.oplopend );}
+    else if (this.es == 'auteur') {this.data.sort( (a,b) => (a.auteurs[0].achternaam > b.auteurs[0].achternaam ) ? this.oplopend : -1*this.oplopend );}
+
+
+
+  },
+
     uitvoeren() {
+      this.sorteren();
       let html = "";
       this.data.forEach(boek => {
           let completeTitel = "";
@@ -75,3 +108,26 @@ const boeken = {
       return maand;
     }
 }
+
+const pasFilterAan = () => {
+  let gecheckteTaalKeuze = [];
+  taalKeuze.forEach( cb => {
+    if (cb.checked) gecheckteTaalKeuze.push(cb.value);
+  });
+  boeken.taalFilter = gecheckteTaalKeuze;
+  boeken.filteren(JSON.parse(xhr.responseText));
+  boeken.uitvoeren();
+}
+
+const pasSortEigAan = () => {
+  boeken.es = selectSort.value;
+  boeken.uitvoeren();
+}
+
+taalKeuze.forEach( cb => cb.addEventListener('change', pasFilterAan));
+
+selectSort.addEventListener('change', pasSortEigAan);
+document.querySelectorAll('.besturing__rb').forEach( rb => rb.addEventListener('change', () => {
+  boeken.oplopend = rb.value;
+  boeken.uitvoeren();
+} ))
