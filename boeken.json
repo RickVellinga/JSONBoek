@@ -52,6 +52,26 @@
       "prijs": 15
      },
      {
+       "titel": "Marvel | Infinity Gauntlet",
+       "auteurs": [
+      {
+         "voornaam": "Jim",
+         "achternaam": "Starlin"
+      },
+      {
+          "voornaam": "R.",
+          "achternaam": "Lim"
+      }
+
+    ],
+      "uitgave": "2011-09",
+      "paginas": 256,
+      "taal": "Engels",
+      "ean": 9780785156598 ,
+      "cover": "https://media.s-bol.com/5JVxz26oAlX/546x840.jpg",
+      "prijs": 20
+     },
+     {
         "titel": "Antwerpen",
         "cover": "https://media.s-bol.com/7lyMwq1Oo8y/550x825.jpg",
         "voortitel" : "Time to momo -",
