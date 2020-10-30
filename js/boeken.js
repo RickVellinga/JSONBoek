@@ -21,16 +21,28 @@ const ww = {
   boekToevoegen(obj) {
     ww.bestelling.push(obj);
     aantalInWinkelwagen.innerHTML = this.bestelling.length;
-  },
-
-  dataOpslaan() {
     localStorage.wwBestelling = JSON.stringify(this.bestelling);
   },
 
   dataOphalen() {
     this.bestelling = JSON.parse(localStorage.wwBestelling);
+    this.uitvoeren();
+  },
+
+  uitvoeren() {
+    let html = '<table>';
+    this.bestelling.forEach( boek => {
+      html += '<tr>';
+      html += `<td><img src="${boek.cover}" alt="${boek.titel}"><td>`
+      html += '<tr>';
+    })
+
+    html += '</table>';
+    document.getElementById('uitvoer').innerHTML = html;
     aantalInWinkelwagen.innerHTML = ww.bestelling.length;
+
   }
+
 }
 
 ww.dataOphalen();
@@ -110,7 +122,6 @@ const boeken = {
           let boekID = e.target.getAttribute('data-role');
           let gekliktBoek = this.data.filter( b => b.ean == boekID);
           ww.boekToevoegen(gekliktBoek[0]);
-          ww.dataOpslaan();
         })
       });
     },
