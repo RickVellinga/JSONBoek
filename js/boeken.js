@@ -18,7 +18,7 @@ xhr.send();
 const ww = {
   bestelling: [],
 
-  boekToevoegen(obj){
+  boekToevoegen(obj) {
     ww.bestelling.push(obj);
     aantalInWinkelwagen.innerHTML = this.bestelling.length;
   },
@@ -110,6 +110,7 @@ const boeken = {
           let boekID = e.target.getAttribute('data-role');
           let gekliktBoek = this.data.filter( b => b.ean == boekID);
           ww.boekToevoegen(gekliktBoek[0]);
+          ww.dataOpslaan();
         })
       });
     },
