@@ -1,61 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rick Vellinga">
-    <title>JSON Boeken</title>
+    <title>JSON Boek</title>
     <link rel="stylesheet" href="css/boeken.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+
     <input type="checkbox" id="haalFormulier">
     <div class="bestelformulier">
-      <h2>Uw bestelling</h2>
-      <div class="uitvoer">
-
-      </div>
+        <h2>Uw Bestelling</h2>
+        <div id="uitvoer"></div>
     </div>
-
-    <label for="haalFormulier">
-      <div class="ww">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTl1GOITij7Kdz0yJ8bbhw0ufqWzCjNEJhaxA&usqp=CAU" alt="winkelwagen" class="ww__icon">
-        <span class="ww__aantal">0</span>
-      </div></label>
-
-
+    <label for="haalFormulier" class="ww">
+        <div class="ww">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTl1GOITij7Kdz0yJ8bbhw0ufqWzCjNEJhaxA&usqp=CAU" alt="winkelwagen" class="ww__icon">
+            <span class="ww__aantal">0</span>
+        </div>
+    </label>
     <h1>Kies uit de volgende boeken</h1>
     <div class="besturing">
-      <label class="besturing__cb-label">
-        <input type="checkbox" class="besturing__cb-taal" value="Nederlands" checked>
-          Nederlands
-      </label>
-      <label class="besturing__cb-label">
-        <input type="checkbox" class="besturing__cb-taal" value="Engels" checked>
-          Engels
-      </label>
-      <label class="besturing__cb-label">
-        <input type="checkbox" class="besturing__cb-taal" value="Duits" checked>
-          Duits
-      </label>
-
-      <span class="besturing__sorteren">
-        <label class="besturing__select--label"> Sorteren op:
-        <select class="besturing__select">
-          <option value="titel">Titel</option>
-          <option value="auteur">Auteur</option>
-          <option value="uitgave">Publicatie datum</option>
-          <option value="paginas">Aantal bladzijden</option>
-          <option value="prijs">Prijs</option>
-        </select>
+        <label for="" class="besturing__cb-label">
+            <input type="checkbox" class="besturing__cb-taal" value="Nederlands" checked>
+            Nederlands
         </label>
-        <label><input type="radio" name="opaf" class="besturing__rb" checked value="1">Oplopend</label>
-        <label><input type="radio" name="opaf" class="besturing__rb"  value="-1">Aflopend</label>
-
-    </span>
+        <label for="" class="besturing__cb-label">
+            <input type="checkbox" class="besturing__cb-taal" value="Engels" checked>
+            Engels
+        </label>
+        <label for="" class="besturing__cb-label">
+            <input type="checkbox" class="besturing__cb-taal" value="Duits" checked>
+            Duits
+        </label>
+        <span class="besturing__sorteren">
+            <label class="besturing__select--label"> Sorteren op:
+                <select class="besturing__select">
+                    <option value="titel">Titel</option>
+                    <option value="auteur">Auteur</option>
+                    <option value="uitgave">Publicatie datum</option>
+                    <option value="paginas">Aantal bladzijde</option>
+                    <option value="prijs">Prijs</option>
+                </select>
+            </label>
+            <label><input type="radio" name="opaf" class="besturing__rb" checked value="1">Oplopend</label>
+            <label><input type="radio" name="opaf" class="besturing__rb" value="-1">Aflopend</label>
+        </span>
     </div>
-
     <div id="boeken"></div>
     <script src="js/boeken.js"></script>
-  </body>
+</body>
 </html>

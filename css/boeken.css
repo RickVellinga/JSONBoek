@@ -124,3 +124,11 @@ body{
   transform: translateX(100vw);
   transition: transform 1s ease-out;
 }
+
+.bestelformulier__cover{
+  width: 6em;
+}
+
+.bestelformulier__verlaag, .bestelformulier__verhoog{
+  padding: 1em;
+}
